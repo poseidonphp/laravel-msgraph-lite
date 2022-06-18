@@ -1,13 +1,13 @@
 <?php
 
-namespace Poseidonphp\LaravelMsGraphMail;
+namespace Poseidonphp\MsGraphMailer;
 
 use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\Exception\ConnectException;
 use Illuminate\Support\Facades\Cache;
-use Poseidonphp\LaravelMsGraphMail\Exceptions\CouldNotGetToken;
-use Poseidonphp\LaravelMsGraphMail\Exceptions\CouldNotReachService;
-use Poseidonphp\LaravelMsGraphMail\Exceptions\CouldNotSendMail;
+use Poseidonphp\MsGraphMailer\Exceptions\CouldNotGetToken;
+use Poseidonphp\MsGraphMailer\Exceptions\CouldNotReachService;
+use Poseidonphp\MsGraphMailer\Exceptions\CouldNotSendMail;
 use Psr\EventDispatcher\EventDispatcherInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpClient\HttpClient;
@@ -79,7 +79,6 @@ class MsGraphMailTransport extends AbstractApiTransport
         } catch (Throwable $e) {
             throw CouldNotReachService::unknownError();
         }
-//        $sentMessage->setMessageId($result['id']);
         return $response;
     }
 
@@ -116,8 +115,7 @@ class MsGraphMailTransport extends AbstractApiTransport
 //                'contentType' => Str::contains($email->getContentType(), ['text', 'plain']) ? 'text' : 'html',
                 'content' => $html,
             ],
-            'attachments' => $attachments,
-//            'attachments' => $this->toAttachmentCollection($attachments),
+            'attachments' => $attachments
         ]);
     }
 
@@ -258,7 +256,7 @@ class MsGraphMailTransport extends AbstractApiTransport
      */
     protected function getAccessToken(): string {
         try {
-            return Cache::remember('mail-msgraph-accesstoken', 45, function () {
+            return Cache::remember('msgraph-mailer-accesstoken', 45, function () {
                 $url = str_replace('{tenant}', $this->tenant_id ?? 'common', $this->tokenEndpoint);
                 $response = $this->http->request('POST', $url, [
                     'body' => [

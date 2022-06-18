@@ -1,10 +1,10 @@
 # Laravel Microsoft Graph Mail
 
-**----- WORKS WITH LARAVEL 9 -----**
+## ----- WORKS WITH LARAVEL 9 -----
 
-Originally forked from wapacro/laravel-msgraph-mail, but added a lot of new features, and updated it to work with changes to Laravel 9.
+Originally forked from wapacro/laravel-msgraph-mail, but added new features, and updated it to work with changes to Laravel 9.
 
-This package makes it easy to send, read, and manage emails from your personal, work or school account using Microsoft's Graph API,
+This package makes it easy to send emails from your personal, work or school account using Microsoft's Graph API,
 allowing you to benefit from HTTP instead of SMTP/IMAP/POP with Laravel.
 
 _Tested with different company (Microsoft 365 Business) accounts_
@@ -14,7 +14,7 @@ _Tested with different company (Microsoft 365 Business) accounts_
 Install the package using composer:
 
 ```
-composer require poseidonphp/laravel-msgraph-mail
+composer require poseidonphp/laravel-msgraph-mailer
 ```
 
 Add the configuration to your mail.php config file:
@@ -46,9 +46,8 @@ The latest version is only compatible with Laravel 9.x.
 
 | Package Version | Laravel Version |
 |-----------------|-----------------|
-| ^1.0            | 7.x             |
-| ^2.0            | 8.x             |
-| ^3.0            | 9.x             |
+| ^1.0            | 9.x             |
+
 
 
 ### Getting the credentials
@@ -57,13 +56,7 @@ To get the necessary client ID and secret you'll need to register your applicati
 permissions. Head over to [the Azure Portal to do so](https://docs.microsoft.com/en-us/graph/auth-register-app-v2)
 (you don't need to be an Azure user).
 
-Make sure to grant the _Mail.Send_ permission and to generate a secret afterwards (may be hidden during app registration).
-
-**Permissions:**
-* MailboxSettings.Read - needed to read outlook/mail categories
-* Mail.Read - Needed if reading mail from mailboxes
-* Mail.ReadWrite - Needed if Reading/writing/managing mail in mailboxes
-* Mail.Send - Send mail using GraphAPI
+Make sure to grant the *_Mail.Send_* permission and to generate a secret afterwards (may be hidden during app registration).
 
 
 **Work & School accounts:** Granting your app the _Mail.Send_ permission allows you by default to send emails with every

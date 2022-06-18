@@ -1,7 +1,7 @@
 {
-  "name": "poseidonphp/laravel-msgraph-mail",
+  "name": "poseidonphp/laravel-msgraph-mailer",
   "type": "library",
-  "description": "Laravel mail driver to send emails using Microsoft Graph, supporting both personal accounts as well as work/school accounts (365/Exchange). Also supports reading mail from mailboxes.",
+  "description": "Laravel mail driver to send emails using Microsoft Graph, supporting both personal accounts as well as work/school accounts (365/Exchange).",
   "keywords": [
     "laravel",
     "mail",
@@ -10,7 +10,7 @@
     "microsoft",
     "graph"
   ],
-  "homepage": "https://github.com/poseidonphp/laravel-msgraph-mail",
+  "homepage": "https://github.com/poseidonphp/laravel-msgraph-mailer",
   "license": "MIT",
   "authors": [
     {
@@ -28,12 +28,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Poseidonphp\\LaravelMsGraphMail\\": "src/"
+      "Poseidonphp\\MsGraphMailer\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Poseidonphp\\LaravelMsGraphMail\\Test\\": "tests/"
+      "Poseidonphp\\MsGraphMailer\\Test\\": "tests/"
     }
   },
   "require-dev": {
@@ -48,7 +48,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Poseidonphp\\LaravelMsGraphMail\\MsGraphMailServiceProvider"
+        "Poseidonphp\\MsGraphMailer\\MsGraphMailerServiceProvider"
       ]
     }
   }

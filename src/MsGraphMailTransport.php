@@ -1,13 +1,13 @@
 <?php
 
-namespace Poseidonphp\MsGraphMailer;
+namespace Poseidonphp\MsGraphLite;
 
 use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\Exception\ConnectException;
 use Illuminate\Support\Facades\Cache;
-use Poseidonphp\MsGraphMailer\Exceptions\CouldNotGetToken;
-use Poseidonphp\MsGraphMailer\Exceptions\CouldNotReachService;
-use Poseidonphp\MsGraphMailer\Exceptions\CouldNotSendMail;
+use Poseidonphp\MsGraphLite\Exceptions\CouldNotGetToken;
+use Poseidonphp\MsGraphLite\Exceptions\CouldNotReachService;
+use Poseidonphp\MsGraphLite\Exceptions\CouldNotSendMail;
 use Psr\EventDispatcher\EventDispatcherInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpClient\HttpClient;

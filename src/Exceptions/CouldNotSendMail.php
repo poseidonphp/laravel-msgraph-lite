@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Poseidonphp\MsGraphMailer\Exceptions;
+namespace Poseidonphp\MsGraphLite\Exceptions;
 
 
 use Exception;

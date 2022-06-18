@@ -1,12 +1,12 @@
 <?php
 
 
-namespace Poseidonphp\MsGraphMailer;
+namespace Poseidonphp\MsGraphLite;
 
 use Illuminate\Support\ServiceProvider;
-use Poseidonphp\MsGraphMailer\Exceptions\CouldNotSendMail;
+use Poseidonphp\MsGraphLite\Exceptions\CouldNotSendMail;
 
-class MsGraphMailerServiceProvider extends ServiceProvider {
+class MsGraphLiteServiceProvider extends ServiceProvider {
 
     /**
      * Boot any application services.

@@ -1,5 +1,9 @@
 # Laravel Microsoft Graph Mail
 
+**----- WORKS WITH LARAVEL 9 -----**
+
+Originally forked from wapacro/laravel-msgraph-mail, but added a lot of new features, and updated it to work with changes to Laravel 9.
+
 This package makes it easy to send, read, and manage emails from your personal, work or school account using Microsoft's Graph API,
 allowing you to benefit from HTTP instead of SMTP/IMAP/POP with Laravel.
 

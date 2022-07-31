@@ -35,15 +35,23 @@ class MsMailbox
         return $this;
     }
 
-    public function getMail(): Collection {
+    public function getMailInFolder($folder_id): Collection {
+        return $this->getMail($folder_id);
+    }
+
+    public function getMail($in_folder_id = null): Collection {
         $query = [];
         if(count($this->filters) > 0) {
             $query[] = '$filter=' . join(' and ', $this->filters);
         }
         $query[] = '$select=' . join(',', $this->selectFields);
 
+        if($in_folder_id) {
+            $messages = MsGraphApi::doGetApi($this->upn . '/mailFolders/' . $in_folder_id . '/messages?' . join('&', $query));
+        } else {
+            $messages = MsGraphApi::doGetApi($this->upn . '/messages?' . join('&', $query));
+        }
 
-        $messages = MsGraphApi::doGetApi($this->upn . '/messages?' . join('&', $query));
         $emails = new Collection();
         foreach($messages->collect('value') as $message) {
             $emails->push(new MsEmail($this->upn, $message));

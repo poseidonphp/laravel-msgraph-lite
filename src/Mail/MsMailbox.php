@@ -53,8 +53,13 @@ class MsMailbox
     }
 
 
-    public function getFolders() {
-        $msFolders = MsGraphApi::doGetApi($this->upn . '/mailFolders');
+    public function getFolders($parent_folder_id) {
+        if($parent_folder_id) {
+            $msFolders = MsGraphApi::doGetApi($this->upn . '/mailFolders/' . $parent_folder_id . '/childFolders');
+        } else {
+            $msFolders = MsGraphApi::doGetApi($this->upn . '/mailFolders');
+        }
+
         $folders = new Collection();
         foreach($msFolders->collect('value') as $folder) {
             $folders->push(new MsMailboxFolder($this->upn, $folder));

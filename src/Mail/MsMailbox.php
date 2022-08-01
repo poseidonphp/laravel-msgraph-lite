@@ -45,6 +45,7 @@ class MsMailbox
             $query[] = '$filter=' . join(' and ', $this->filters);
         }
         $query[] = '$select=' . join(',', $this->selectFields);
+        $query[] = '$expand=attachments';
 
         if($in_folder_id) {
             $messages = MsGraphApi::doGetApi($this->upn . '/mailFolders/' . $in_folder_id . '/messages?' . join('&', $query));
@@ -61,7 +62,7 @@ class MsMailbox
     }
 
 
-    public function getFolders($parent_folder_id) {
+    public function getFolders($parent_folder_id = null): Collection {
         if($parent_folder_id) {
             $msFolders = MsGraphApi::doGetApi($this->upn . '/mailFolders/' . $parent_folder_id . '/childFolders');
         } else {
